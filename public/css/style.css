@@ -1,0 +1,160 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.container{
+    background-color:#ffffff;
+    height: 100vh;
+}
+
+.nav1-ul{
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+.nav1-ul, .nav2-ul {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    background-color: #a7c957;
+    font-weight: bold;
+}
+
+.research-bar{
+    border: solid 0.5px rgb(0, 0, 0);
+    background-color: #ffffff;
+    width: 12rem;
+    padding: 0.2rem;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.nav2-ul {
+    background-color: #f2e8cf;
+    border-bottom: 1px solid black;
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    text-align: center;
+}
+.drop-one, .drop-two, .drop-three, .drop-four, .drop-five, .drop-six {
+    display: none;
+    position: absolute;
+    top: 3rem;
+    background-color: #ffffff;
+    border: #000000 solid 0.5px;
+    text-align: center;
+    width: 16.66vw;
+}
+
+.drop-one {
+    left: 0;
+}
+
+.drop-two {  
+    left: 16.66vw;
+}
+
+.drop-three {  
+    left: 33.33vw;
+}
+
+.drop-four { 
+    left: 49.99vw;
+}
+
+.drop-five {  
+    left: 66.65vw;
+}
+
+.drop-six {  
+    left: 83.31vw;
+}
+
+.dropdown-content li{
+    border-bottom: black solid 1px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.categories {
+    height: 80vh;
+}
+
+.categories-vehicules {
+    flex-wrap: wrap;
+    display: flex;
+    border: #ACB8C7 solid 1px;
+    border-radius: 8px 8px 8px 8px;
+}
+
+.incategorie{
+    flex-direction: row;
+    width: 29vw;
+    margin-left: 5px;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.img-categories{
+    margin: 2rem 10px;
+    width: 200px;
+    height: 150px;
+}   
+
+footer, main {
+    margin: 2rem;
+}
+
+footer {
+    text-align: center;
+}
+
+.text-footer {
+margin-left: 10px;
+margin-right: 10px;
+}
+.categories-top, .categories-vehicules, .categories-emplois {
+    display: flex;
+    flex-direction: row;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.vehiculeFilterTitre{
+margin: 10px;
+font-weight: bold;
+}
+
+.vehiculeFilterImage{
+    width: 300px;
+    border-radius: 8px;
+}
+
+input{
+    margin-left: 2rem;
+}
+
+.divVehiculeFilter{
+    border-bottom: #ACB8C7 solid 1px;
+    border-radius: 2px 2px 2px 2px;
+    margin: 0.8rem 0.8rem;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.textArticleVehicule{
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapfilter{
+    border: #ACB8C7 solid 1px;
+    margin: 1rem 10rem ;
+    border-radius: 8px 8px 8px 8px;
+}

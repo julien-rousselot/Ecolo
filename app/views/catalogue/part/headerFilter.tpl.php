@@ -1,0 +1,1 @@
+will be the header common area, probably all the filters
