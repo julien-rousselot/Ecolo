@@ -7,16 +7,7 @@ class CatalogController extends CoreController {
 
     public function categorieVehiculeAction(){
 
-        $allVehicules = Vehicules::allVehicules();
-        $bestVehicules = Vehicules::bestVehicules();
-        $allPriceFilterVehicules = Vehicules::categoryfilterprice();
-
-        $this->show('catalogue/vehicules',
-        [
-            'allVehicules'=> $allVehicules,
-            'bestVehicules'=> $bestVehicules,
-            'allPriceFilterVehicules'=> $allPriceFilterVehicules,
-        ]);
+        $this->show('catalogue/vehicules');
     }
 
     public function filtercategorieVehiculeAction(){
@@ -24,19 +15,19 @@ class CatalogController extends CoreController {
         $this->show('catalogue/vehiculesPrice');
     }
 
-    public function filterBrandAction(){
+    // public function filterBrandAction(){
 
-        $brand = filter_input(INPUT_GET, 'brand', FILTER_SANITIZE_SPECIAL_CHARS);
+    //     $brand = filter_input(INPUT_GET, 'brand', FILTER_SANITIZE_SPECIAL_CHARS);
         
-        if(!empty($brand)){
-            $allBrand = Vehicules::categoryfilterbrand($brand);
-        }
+    //     if(!empty($brand)){
+    //         $allBrand = Vehicules::categoryfilterbrand($brand);
+    //     }
             
-        $this->show('catalogue/vehiculesBrand',
-            [
-                'allBrand' => $allBrand,
-            ]
-        );
-    }
+    //     $this->show('catalogue/vehiculesBrand',
+    //         [
+    //             'allBrand' => $allBrand,
+    //         ]
+    //     );
+    // }
 }
 
