@@ -12,10 +12,11 @@
             <input type="text" name="adresse" id="" placeholder="">
         <h3>Ville</h3>
             <input type="text" name="ville" id="" placeholder="">
-        <h3>Numero</h3>
+        <h3>Numero de telephone</h3>
             <input type="number" name="numero" id="" placeholder="">
         <h3>Codepostal</h3>
             <input type="text" name="codepostal" id="" placeholder="">
         <button type="submit">Créer</button>
+
 </form>
 </div>

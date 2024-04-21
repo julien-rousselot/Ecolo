@@ -38,15 +38,43 @@ class UserController extends CoreController {
         if (!$email || !$motdepasse || !$prenom || !$nom || !$adresse || !$ville)  {
             $errors[] = 'Tous les champs sont obligatoires';
         }
-    
-        // ici, on veut empêcher la fonction de continuer normalement si une erreur a eu lieu, 
-        // c'est à dire si le tableau $errors n'est pas vide
+         //verifier true or false
+        if (is_string($prenom) === false)  {
+            $errors[] = 'le champs prenom doit etre des lettres';
+        }
+        if (is_string($nom) === false)  {
+            $errors[] = 'le champs nom doit etre des lettres';
+        }
+        if (is_string($ville) === false)  {
+            $errors[] = 'le champs ville doit etre des lettres';
+        }
+
+        //confirm password
+
+        function verifierMotDePasse($motdepasse) {
+            // Vérifier si le mot de passe contient au moins un caractère spécial
+            $contientCaractereSpecial = preg_match('/[^a-zA-Z0-9]/', $motdepasse);
+        
+            // Vérifier si le mot de passe contient au moins une majuscule
+            $contientMajuscule = preg_match('/[A-Z]/', $motdepasse);
+        
+            // Vérifier si le mot de passe contient au moins un chiffre
+            $contientChiffre = preg_match('/[0-9]/', $motdepasse);
+        
+            // Vérifier si le mot de passe respecte les critères
+            if ($contientCaractereSpecial && $contientMajuscule && $contientChiffre) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        if (strlen($motdepasse) < 8 || verifierMotDePasse($motdepasse) === false) {
+            $errors[] = 'Le mot de passe doit contenir au moins 1 majuscule, 1 caractere special et 8 lettres';
+        }
         if (count($errors) > 0) {
-            // on affiche les erreurs rencontrées
-           $this->show('user/addUser',
-        [
-            'errors' => $errors,
-        ]);
+            dump($errors);
+            exit();
         }
 
         $newUser = new User;
@@ -59,12 +87,15 @@ class UserController extends CoreController {
         $newUser->setNumero($numero);
         $newUser->setCodepostal($codepostal);
 
-        // on sauvegarde le model
         $newUser->create();
         
-        header('Location: ' . $router->generate('main-home'));
-        exit();
+        if($newUser->create()){
+            header('Location: ' . $router->generate('main-home'));
+            exit();
+        }
     }
+    
+    //autre code fonctionnel
     // if(!empty($email)){
     //     $newUser = new User;
     //     $newUser->setEmail($email);

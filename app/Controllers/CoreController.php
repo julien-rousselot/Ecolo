@@ -8,8 +8,6 @@ use App\Models\Marche;
 use App\Models\Services;
 use App\Models\Travailavecnous;
 use App\Models\Vehicules;
-use App\Models\User;
-
 
 class CoreController
 {
@@ -37,8 +35,6 @@ class CoreController
         $allTravailavecnous = Travailavecnous::allTravailavecnous();
         $allImmobilier = Immobilier::allImmobilier();
         $allMarche = Marche::allMarche();
-        $allMarche = Marche::allMarche();
-
 
         extract($dataForView);
         
