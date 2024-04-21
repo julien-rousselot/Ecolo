@@ -6,7 +6,6 @@
     <title>écolo'O</title>
     <link rel="stylesheet" href="<?= $baseUrl ?>/css/reset.css">
     <link rel="stylesheet" href="<?= $baseUrl ?>/css/style.css">
-
 </head>
     <body>
         <div class="container">
@@ -21,6 +20,7 @@
                   <li><h2>Panier</h2></li>
                 </ul> 
               </nav>
+
               <nav class="nav2">
                 <ul class="nav2-ul">
                 <a href="<?= $router->generate('catalogue-vehicules')?>"><li><h2 class="dropdown">Véhicules</h2></li></a>
@@ -49,5 +49,6 @@
                     </ul>
                 </ul>
               </nav>
+
             </section> 
-          </heName
+          </header>

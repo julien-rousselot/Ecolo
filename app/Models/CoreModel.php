@@ -13,8 +13,6 @@ class CoreModel
      */
     protected $id; 
 
-
-
     /**
      * Get the value of id
      *

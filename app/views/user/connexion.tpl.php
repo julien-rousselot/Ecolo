@@ -6,5 +6,5 @@
             <input type="password" name="password" id="" placeholder="">
             <button type="submit">Connexion</button>
     </form>
-    <a href="">S'inscrire</a>
+    <a href="<?= $router->generate('inscription') ?>">S'inscrire</a>
 </div>

@@ -8,6 +8,8 @@ use App\Models\Marche;
 use App\Models\Services;
 use App\Models\Travailavecnous;
 use App\Models\Vehicules;
+use App\Models\User;
+
 
 class CoreController
 {
@@ -35,11 +37,13 @@ class CoreController
         $allTravailavecnous = Travailavecnous::allTravailavecnous();
         $allImmobilier = Immobilier::allImmobilier();
         $allMarche = Marche::allMarche();
+        $allMarche = Marche::allMarche();
+
 
         extract($dataForView);
         
-        require __DIR__ . '/../views/includes/_header.tpl.php';
+        require __DIR__ . '/../views/includes/header.tpl.php';
         require __DIR__ . "/../views/{$templateName}.tpl.php";
-        require __DIR__ . '/../views/includes/_footer.tpl.php';
+        require __DIR__ . '/../views/includes/footer.tpl.php';
     }
 }
