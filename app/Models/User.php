@@ -9,10 +9,10 @@ class User extends CoreModel{
     
     private $email;	
     private $motdepasse;	
-    private string $prenom;	
-    private string $nom;
+    private  $prenom;	
+    private  $nom;
     private $adresse;	
-    private string $ville;	
+    private $ville;	
     private $numero;	
     private $codepostal;
 

@@ -38,17 +38,20 @@ class UserController extends CoreController {
         if (!$email || !$motdepasse || !$prenom || !$nom || !$adresse || !$ville)  {
             $errors[] = 'Tous les champs sont obligatoires';
         }
-         //verifier true or false
-        if (is_string($prenom) === false)  {
-            $errors[] = 'le champs prenom doit etre des lettres';
-        }
-        if (is_string($nom) === false)  {
-            $errors[] = 'le champs nom doit etre des lettres';
-        }
-        if (is_string($ville) === false)  {
-            $errors[] = 'le champs ville doit etre des lettres';
+
+        if (!preg_match("/[a-zA-Z]/", $prenom)) {
+            $errors[] = "Le prénom ne doit contenir que des lettres alphabétiques.";
         }
 
+        if (!preg_match("/[a-zA-Z]/", $nom)) {
+            $errors[] = "Le nom ne doit contenir que des lettres alphabétiques.";
+        }
+
+        if (!preg_match("/[a-zA-Z]/", $ville)) {
+            $errors[] = "La ville ne doit contenir que des lettres alphabétiques.";
+        }
+  
+        //voir erreur duplication
         //confirm password
 
         function verifierMotDePasse($motdepasse) {
