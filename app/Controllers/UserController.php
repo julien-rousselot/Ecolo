@@ -11,9 +11,36 @@ class UserController extends CoreController {
     }
 
     function connexionActionPost(){
-        //preparer les donnees
-        //reception du post avec filtrage
-        //envoyer a la vue ?
+      //essaie de inscription qui ne fonctionne pas
+      //password hash non recupere
+
+        global $router;
+
+        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+
+        $user = User::findByEmail($email);
+
+        //pour l'email si le mail en post passé ici en parametre est egale a false...
+        if($user === false) {
+            exit('Utilisateur incorrect');
+        }
+
+        if(password_verify($_POST['motdepasse'], $user->getMotdepasse())){
+            //on mets en session
+            $_SESSION['userid'] = $user->getId();
+            $_SESSION['userobject'] = $user;
+
+            header("Location:" . $router->generate('main-home'));
+            exit();
+
+        } else {
+            dump($_POST['motdepasse']);
+            dump($user->getMotdepasse());
+
+            exit('Mot de passe incorrect');
+        }
+
+
     }
 
     function inscriptionAction(){
@@ -50,7 +77,11 @@ class UserController extends CoreController {
         if (!preg_match("/[a-zA-Z]/", $ville)) {
             $errors[] = "La ville ne doit contenir que des lettres alphabétiques.";
         }
-  
+
+        // dd($email);
+
+       
+
         //voir erreur duplication
         //confirm password
 

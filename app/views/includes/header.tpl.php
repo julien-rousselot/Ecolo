@@ -12,8 +12,8 @@
           <header>
             <section>
               <nav class="nav1">
-                <ul class="nav1-ul"></ul>
-                  <a href="<?= $router->generate('main-home')?>"><li><h1>Écol'O</h1></li></a>
+                <ul class="nav1-ul">
+                  <li><a href="<?= $router->generate('main-home')?>"><h1>Écol'O</h1></li></a>
                   <li><input type="search"  placeholder="🔎" class="research-bar"></li>
                   <a href="<?= $router->generate('connexion')?>"><li><h2>Connexion</h2></li></a>
                   <li><h2>Favoris</h2></li>

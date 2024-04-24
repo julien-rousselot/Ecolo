@@ -9,13 +9,32 @@ class User extends CoreModel{
     
     private $email;	
     private $motdepasse;	
-    private  $prenom;	
-    private  $nom;
+    private $prenom;	
+    private $nom;
     private $adresse;	
     private $ville;	
     private $numero;	
     private $codepostal;
 
+
+    public static function findByEmail($email)
+    {
+        // récupération de la connexion à la BDD => objet PDO
+        $pdo = Database::getPDO();
+
+        // requête SQL
+        $sql = 'SELECT * FROM User WHERE email = :email';
+
+        // on utilise prepare() car $email vient d'une saisie de l'utilisateur => Pas confiance !
+        $pdoStatement = $pdo->prepare($sql);
+        // on exécute la requête en donnant à PDO la valeur à utiliser pour remplacer ':email'
+        $pdoStatement->execute([':email' => $email]);
+        // on récupère le résultat sous la forme d'un objet de la classe AppUser
+        $result = $pdoStatement->fetchObject('App\Models\User');
+        
+        // on renvoie le résultat
+        return $result;
+    }
     //inserer donne en database
     public function create()
     {
@@ -33,14 +52,14 @@ class User extends CoreModel{
                codepostal
             )
             VALUES (
-            :email,
-            :motdepasse,
-            :prenom,
-            :nom,
-            :adresse,
-            :ville,
-            :numero,
-            :codepostal
+                :email,
+                :motdepasse,
+                :prenom,
+                :nom,
+                :adresse,
+                :ville,
+                :numero,
+                :codepostal
             )
         ";
 

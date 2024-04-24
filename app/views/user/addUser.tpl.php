@@ -17,6 +17,5 @@
         <div>Codepostal</div>
             <input type="text" name="codepostal" id="">
         <button type="submit">Créer</button>
-
     </form>
 </div>
